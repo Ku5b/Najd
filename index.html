@@ -11,15 +11,15 @@
     
     <style>
         :root {
-            /* الألوان العنابية/البنفسجية الداكنة */
-            --bg-main: #0c080e;
-            --bg-card: rgba(22, 14, 26, 0.75);
-            --border-card: rgba(168, 85, 247, 0.15);
+            /* درجات الأحمر الغامق والعنابي */
+            --bg-main: #0a0304;
+            --bg-card: rgba(26, 10, 12, 0.85);
+            --border-card: rgba(225, 29, 72, 0.2);
             
-            --accent: #a855f7;
-            --accent-glow: rgba(168, 85, 247, 0.35);
-            --plum-dark: #1b1022;
-            --plum-light: #2d1838;
+            --accent: #e11d48; /* أحمر حاد ومميز */
+            --accent-glow: rgba(225, 29, 72, 0.4);
+            --red-dark: #1f070a;
+            --red-light: #3b0d13;
             
             --text-main: #f8fafc;
             --text-sub: #cbd5e1;
@@ -38,14 +38,14 @@
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 20% 20%, rgba(45, 24, 56, 0.6) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(27, 16, 34, 0.8) 0%, transparent 50%);
+                radial-gradient(circle at 20% 20%, rgba(59, 13, 19, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(31, 7, 10, 0.9) 0%, transparent 50%);
             background-attachment: fixed;
         }
 
         /* الناڤ بار */
         header {
-            background: rgba(12, 8, 14, 0.85);
+            background: rgba(10, 3, 4, 0.9);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             position: fixed;
@@ -77,7 +77,7 @@
             height: 48px;
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0 0 8px var(--accent-glow));
+            filter: drop-shadow(0 0 10px var(--accent-glow));
         }
 
         .nav-links {
@@ -111,15 +111,15 @@
         }
 
         .hero-badge {
-            background: rgba(168, 85, 247, 0.1);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            color: var(--accent);
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.4);
+            color: #f43f5e;
             padding: 8px 22px;
             border-radius: 50px;
             font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
+            box-shadow: 0 0 20px rgba(225, 29, 72, 0.2);
         }
 
         .hero h1 {
@@ -172,14 +172,15 @@
         }
 
         .btn-roblox {
-            background: linear-gradient(135deg, var(--accent) 0%, #7e22ce 100%);
+            background: linear-gradient(135deg, #be123c 0%, #881337 100%);
             color: white;
             box-shadow: 0 10px 25px var(--accent-glow);
+            border: 1px solid rgba(225, 29, 72, 0.5);
         }
 
         .btn-roblox:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 15px 35px rgba(225, 29, 72, 0.6);
         }
 
         .btn-copy {
@@ -223,11 +224,11 @@
             font-size: 0.95rem;
         }
 
-        /* تصميم مميز ومختلف لعدّاد هدف الأعضاء */
+        /* تصميم كارت الهدف المطور بالأحمر الغامق */
         .stat-card.target-card {
-            background: linear-gradient(145deg, rgba(168, 85, 247, 0.18), rgba(27, 16, 34, 0.9));
+            background: linear-gradient(145deg, rgba(136, 19, 55, 0.5), rgba(10, 3, 4, 0.95));
             border: 2px solid var(--accent);
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+            box-shadow: 0 0 25px rgba(225, 29, 72, 0.35);
             transform: scale(1.03);
             overflow: hidden;
         }
@@ -242,7 +243,6 @@
             font-weight: 800;
             padding: 3px 10px;
             border-radius: 20px;
-            text-transform: uppercase;
         }
 
         .progress-bar-bg {
@@ -257,7 +257,7 @@
         .progress-bar-fill {
             height: 100%;
             width: 0%;
-            background: linear-gradient(90deg, #a855f7, #e879f9);
+            background: linear-gradient(90deg, #be123c, #fb7185);
             border-radius: 10px;
             transition: width 1.8s ease-in-out;
         }
@@ -296,15 +296,15 @@
         }
 
         .card:hover {
-            border-color: rgba(168, 85, 247, 0.5);
+            border-color: rgba(225, 29, 72, 0.6);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
         .card-icon {
             width: 65px;
             height: 65px;
-            background: rgba(168, 85, 247, 0.1);
+            background: rgba(225, 29, 72, 0.12);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -312,7 +312,7 @@
             font-size: 28px;
             color: var(--accent);
             margin-bottom: 25px;
-            border: 1px solid rgba(168, 85, 247, 0.2);
+            border: 1px solid rgba(225, 29, 72, 0.3);
         }
 
         .card h3 {
@@ -331,7 +331,7 @@
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: var(--plum-light);
+            background-color: var(--red-light);
             color: #fff;
             text-align: center;
             border-radius: 10px;
@@ -342,7 +342,7 @@
             bottom: 30px;
             transform: translateX(-50%);
             border: 1px solid var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             opacity: 0;
             transition: opacity 0.3s, bottom 0.3s;
         }
@@ -354,7 +354,7 @@
         }
 
         footer {
-            background: rgba(12, 8, 14, 0.95);
+            background: rgba(10, 3, 4, 0.98);
             border-top: 1px solid var(--border-card);
             text-align: center;
             padding: 40px 20px;
@@ -409,9 +409,8 @@
             </button>
         </div>
 
-        <!-- الإحصائيات مع عدّاد الهدف المميز -->
+        <!-- الإحصائيات وعدّاد الهدف بالأحمر الغامق -->
         <div class="stats-container">
-            <!-- الكارت المميز لهدف الأعضاء -->
             <div class="stat-card target-card">
                 <span class="target-badge">هدف قادم 🔥</span>
                 <h4 style="color: #ffffff;">+<span class="counter" data-target="10">0</span></h4>
@@ -510,7 +509,7 @@
         <p>جميع الحقوق محفوظة &copy; 2026 - <strong>مقاطعة نجد Roblox Roleplay</strong></p>
     </footer>
 
-    <!-- سكربتات التفاعل والعدادات -->
+    <!-- سكربتات التفاعل -->
     <script>
         function copyDiscordLink(link) {
             navigator.clipboard.writeText(link).then(() => {
@@ -541,7 +540,7 @@
                 updateCount();
             });
 
-            // تحريك شريط التقدم لهدف الاعضاء
+            // تحريك شريط التقدم
             setTimeout(() => {
                 document.getElementById('progressFill').style.width = '75%';
             }, 300);
