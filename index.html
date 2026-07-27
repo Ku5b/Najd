@@ -193,7 +193,7 @@
             transform: translateY(-4px);
         }
 
-        /* كروت الإحصائيات والأهداف */
+        /* كروت الإحصائيات */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -221,6 +221,45 @@
         .stat-card p {
             color: var(--text-sub);
             font-size: 0.95rem;
+        }
+
+        /* تصميم مميز ومختلف لعدّاد هدف الأعضاء */
+        .stat-card.target-card {
+            background: linear-gradient(145deg, rgba(168, 85, 247, 0.18), rgba(27, 16, 34, 0.9));
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.3);
+            transform: scale(1.03);
+            overflow: hidden;
+        }
+
+        .target-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #a855f7, #e879f9);
+            border-radius: 10px;
+            transition: width 1.8s ease-in-out;
         }
 
         /* الأقسام العامة */
@@ -370,12 +409,18 @@
             </button>
         </div>
 
-        <!-- الإحصائيات وهدف الأعضاء (+10) -->
+        <!-- الإحصائيات مع عدّاد الهدف المميز -->
         <div class="stats-container">
-            <div class="stat-card">
-                <h4>+<span class="counter" data-target="10">0</span></h4>
-                <p>هدف الأعضاء القادم 🎯</p>
+            <!-- الكارت المميز لهدف الأعضاء -->
+            <div class="stat-card target-card">
+                <span class="target-badge">هدف قادم 🔥</span>
+                <h4 style="color: #ffffff;">+<span class="counter" data-target="10">0</span></h4>
+                <p style="color: #e2e8f0; font-weight: 700;">عضو بالسيرفر 🎯</p>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressFill"></div>
+                </div>
             </div>
+
             <div class="stat-card">
                 <h4><span class="counter" data-target="24">0</span>/7</h4>
                 <p>ساعة تواجد الإدارة</p>
@@ -465,7 +510,7 @@
         <p>جميع الحقوق محفوظة &copy; 2026 - <strong>مقاطعة نجد Roblox Roleplay</strong></p>
     </footer>
 
-    <!-- سكربتات التفاعل -->
+    <!-- سكربتات التفاعل والعدادات -->
     <script>
         function copyDiscordLink(link) {
             navigator.clipboard.writeText(link).then(() => {
@@ -495,6 +540,11 @@
                 };
                 updateCount();
             });
+
+            // تحريك شريط التقدم لهدف الاعضاء
+            setTimeout(() => {
+                document.getElementById('progressFill').style.width = '75%';
+            }, 300);
         });
     </script>
 
