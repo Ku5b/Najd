@@ -11,13 +11,12 @@
     
     <style>
         :root {
-            /* درجات اللون العنابي/البنفسجي الداكن المستخرجة من الصورة */
+            /* الألوان المستخرجة المطبقة على الهوية البصرية */
             --bg-main: #0c080e;
             --bg-card: rgba(22, 14, 26, 0.75);
             --border-card: rgba(168, 85, 247, 0.15);
             
-            /* الألوان التفاعلية واللمسات الجمالية */
-            --accent: #a855f7; /* بنفسجي متوهج */
+            --accent: #a855f7;
             --accent-glow: rgba(168, 85, 247, 0.35);
             --plum-dark: #1b1022;
             --plum-light: #2d1838;
@@ -38,7 +37,6 @@
             background-color: var(--bg-main);
             color: var(--text-main);
             overflow-x: hidden;
-            /* خلفية متدرجة تحاكي الصورة بدقة */
             background-image: 
                 radial-gradient(circle at 20% 20%, rgba(45, 24, 56, 0.6) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(27, 16, 34, 0.8) 0%, transparent 50%);
@@ -63,11 +61,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 24px;
+            padding: 14px 24px;
         }
 
         .logo {
-            font-size: 26px;
+            font-size: 24px;
             font-weight: 900;
             color: var(--text-main);
             display: flex;
@@ -75,9 +73,11 @@
             gap: 12px;
         }
 
-        .logo i {
-            color: var(--accent);
-            filter: drop-shadow(0 0 10px var(--accent-glow));
+        .logo img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--accent-glow));
         }
 
         .nav-links {
@@ -99,7 +99,7 @@
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
-        /* قسم الهيرو */
+        /* الهيرو */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -193,7 +193,7 @@
             transform: translateY(-4px);
         }
 
-        /* كروت الإحصائيات مع العداد التفاعلي */
+        /* كروت الإحصائيات */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -287,7 +287,7 @@
             line-height: 1.7;
         }
 
-        /* إشعار النسخ (Toast) */
+        /* إشعار النسخ */
         #toast {
             visibility: hidden;
             min-width: 250px;
@@ -334,11 +334,11 @@
 </head>
 <body>
 
-    <!-- الناڤ بار -->
+    <!-- الناڤ بار مع اللوجو N.png -->
     <header>
         <div class="nav-container">
             <div class="logo">
-                <i class="fa-solid fa-shield-cat"></i>
+                <img src="N.png" alt="شعار مقاطعة نجد">
                 مقاطعة نجد
             </div>
             <ul class="nav-links">
@@ -369,7 +369,7 @@
             </button>
         </div>
 
-        <!-- إحصائيات بأسكربت عداد حركي -->
+        <!-- الإحصائيات مع العداد التفاعلي -->
         <div class="stats-container">
             <div class="stat-card">
                 <h4 class="counter" data-target="24">0</h4>
@@ -452,7 +452,7 @@
         </div>
     </section>
 
-    <!-- التوست لإشعارات النسخ -->
+    <!-- إشعار النسخ -->
     <div id="toast">تم نسخ الرابط بنجاح! 🚀</div>
 
     <!-- الفوتر -->
@@ -460,9 +460,8 @@
         <p>جميع الحقوق محفوظة &copy; 2026 - <strong>مقاطعة نجد Roblox Roleplay</strong></p>
     </footer>
 
-    <!-- سكربتات التفاعل (JavaScript) -->
+    <!-- سكربتات التفاعل -->
     <script>
-        // 1. سكربت نسخ الرابط وإظهار التوست
         function copyDiscordLink(link) {
             navigator.clipboard.writeText(link).then(() => {
                 const toast = document.getElementById("toast");
@@ -473,13 +472,12 @@
             });
         }
 
-        // 2. سكربت عداد الإحصائيات الحركي
         document.addEventListener('DOMContentLoaded', () => {
             const counters = document.querySelectorAll('.counter');
             counters.forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 let count = 0;
-                const speed = target / 50; // السرعة
+                const speed = target / 50;
 
                 const updateCount = () => {
                     count += speed;
