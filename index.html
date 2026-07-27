@@ -11,14 +11,19 @@
     
     <style>
         :root {
-            --bg-main: #0a0c10;
-            --bg-card: rgba(18, 22, 31, 0.7);
-            --border-card: rgba(255, 255, 255, 0.08);
-            --accent: #10b981;
-            --accent-glow: rgba(16, 185, 129, 0.35);
-            --gold: #f59e0b;
+            /* درجات اللون العنابي/البنفسجي الداكن المستخرجة من الصورة */
+            --bg-main: #0c080e;
+            --bg-card: rgba(22, 14, 26, 0.75);
+            --border-card: rgba(168, 85, 247, 0.15);
+            
+            /* الألوان التفاعلية واللمسات الجمالية */
+            --accent: #a855f7; /* بنفسجي متوهج */
+            --accent-glow: rgba(168, 85, 247, 0.35);
+            --plum-dark: #1b1022;
+            --plum-light: #2d1838;
+            
             --text-main: #f8fafc;
-            --text-sub: #94a3b8;
+            --text-sub: #cbd5e1;
         }
 
         * {
@@ -33,14 +38,16 @@
             background-color: var(--bg-main);
             color: var(--text-main);
             overflow-x: hidden;
+            /* خلفية متدرجة تحاكي الصورة بدقة */
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(245, 158, 11, 0.05) 0%, transparent 40%);
+                radial-gradient(circle at 20% 20%, rgba(45, 24, 56, 0.6) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(27, 16, 34, 0.8) 0%, transparent 50%);
+            background-attachment: fixed;
         }
 
-        /* الناڤ بار الزجاجي */
+        /* الناڤ بار */
         header {
-            background: rgba(10, 12, 16, 0.75);
+            background: rgba(12, 8, 14, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             position: fixed;
@@ -66,12 +73,11 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            letter-spacing: 0.5px;
         }
 
         .logo i {
             color: var(--accent);
-            filter: drop-shadow(0 0 8px var(--accent-glow));
+            filter: drop-shadow(0 0 10px var(--accent-glow));
         }
 
         .nav-links {
@@ -93,7 +99,7 @@
             text-shadow: 0 0 10px var(--accent-glow);
         }
 
-        /* واجهة الهيرو */
+        /* قسم الهيرو */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -102,19 +108,18 @@
             align-items: center;
             text-align: center;
             padding: 120px 20px 60px;
-            position: relative;
         }
 
         .hero-badge {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            background: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
             color: var(--accent);
-            padding: 8px 20px;
+            padding: 8px 22px;
             border-radius: 50px;
             font-size: 0.95rem;
             font-weight: 700;
             margin-bottom: 25px;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
         }
 
         .hero h1 {
@@ -122,7 +127,7 @@
             font-weight: 900;
             line-height: 1.2;
             margin-bottom: 20px;
-            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -136,23 +141,23 @@
 
         .btn-group {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .btn {
-            padding: 14px 36px;
+            padding: 14px 32px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-discord {
@@ -167,17 +172,28 @@
         }
 
         .btn-roblox {
-            background: linear-gradient(135deg, var(--accent) 0%, #059669 100%);
+            background: linear-gradient(135deg, var(--accent) 0%, #7e22ce 100%);
             color: white;
             box-shadow: 0 10px 25px var(--accent-glow);
         }
 
         .btn-roblox:hover {
             transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.5);
         }
 
-        /* كروت الإحصائيات */
+        .btn-copy {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-card);
+        }
+
+        .btn-copy:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* كروت الإحصائيات مع العداد التفاعلي */
         .stats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -190,13 +206,13 @@
         .stat-card {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
-            padding: 20px;
+            padding: 25px;
             border-radius: 16px;
             backdrop-filter: blur(10px);
         }
 
         .stat-card h4 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--accent);
             font-weight: 900;
         }
@@ -218,7 +234,6 @@
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 50px;
-            position: relative;
         }
 
         .section-title span {
@@ -238,19 +253,18 @@
             padding: 35px;
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
-            position: relative;
         }
 
         .card:hover {
-            border-color: rgba(16, 185, 129, 0.4);
+            border-color: rgba(168, 85, 247, 0.5);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
         .card-icon {
             width: 65px;
             height: 65px;
-            background: rgba(16, 185, 129, 0.1);
+            background: rgba(168, 85, 247, 0.1);
             border-radius: 14px;
             display: flex;
             align-items: center;
@@ -258,7 +272,7 @@
             font-size: 28px;
             color: var(--accent);
             margin-bottom: 25px;
-            border: 1px solid rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(168, 85, 247, 0.2);
         }
 
         .card h3 {
@@ -273,9 +287,34 @@
             line-height: 1.7;
         }
 
-        /* الفوتر الفخم */
+        /* إشعار النسخ (Toast) */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--plum-light);
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            padding: 16px;
+            position: fixed;
+            z-index: 2000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            border: 1px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+
         footer {
-            background: rgba(10, 12, 16, 0.95);
+            background: rgba(12, 8, 14, 0.95);
             border-top: 1px solid var(--border-card);
             text-align: center;
             padding: 40px 20px;
@@ -289,7 +328,6 @@
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1.1rem; }
             .nav-links { display: none; }
         }
     </style>
@@ -311,7 +349,7 @@
         </div>
     </header>
 
-    <!-- واجهة الهيرو -->
+    <!-- الهيرو -->
     <section class="hero">
         <div class="hero-badge">
             <i class="fa-solid fa-star"></i> التجربة الواقعية الأولى في روبلوكس
@@ -326,21 +364,24 @@
             <a href="https://www.roblox.com/games/YOUR_GAME" target="_blank" class="btn btn-roblox">
                 <i class="fa-solid fa-gamepad"></i> دخول السيرفر
             </a>
+            <button class="btn btn-copy" onclick="copyDiscordLink('https://discord.gg/YOUR_INVITE')">
+                <i class="fa-solid fa-copy"></i> نسخ الرابط
+            </button>
         </div>
 
-        <!-- إحصائيات السيرفر -->
+        <!-- إحصائيات بأسكربت عداد حركي -->
         <div class="stats-container">
             <div class="stat-card">
-                <h4>+24/7</h4>
-                <p>تتواجد الإدارة</p>
+                <h4 class="counter" data-target="24">0</h4>
+                <p>ساعة تواجد الإدارة / 7 أيام</p>
             </div>
             <div class="stat-card">
-                <h4>100%</h4>
-                <p>واقعية الرول بلاي</p>
+                <h4 class="counter" data-target="100">0</h4>
+                <p>% واقعية الرول بلاي</p>
             </div>
             <div class="stat-card">
-                <h4>+10</h4>
-                <p>قطاعات وتخصصات</p>
+                <h4 class="counter" data-target="12">0</h4>
+                <p>قطاع وتخصص متكامل</p>
             </div>
         </div>
     </section>
@@ -411,10 +452,48 @@
         </div>
     </section>
 
+    <!-- التوست لإشعارات النسخ -->
+    <div id="toast">تم نسخ الرابط بنجاح! 🚀</div>
+
     <!-- الفوتر -->
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 - <strong>مقاطعة نجد Roblox Roleplay</strong></p>
     </footer>
+
+    <!-- سكربتات التفاعل (JavaScript) -->
+    <script>
+        // 1. سكربت نسخ الرابط وإظهار التوست
+        function copyDiscordLink(link) {
+            navigator.clipboard.writeText(link).then(() => {
+                const toast = document.getElementById("toast");
+                toast.className = "show";
+                setTimeout(() => { 
+                    toast.className = toast.className.replace("show", ""); 
+                }, 3000);
+            });
+        }
+
+        // 2. سكربت عداد الإحصائيات الحركي
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const speed = target / 50; // السرعة
+
+                const updateCount = () => {
+                    count += speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count);
+                        setTimeout(updateCount, 30);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        });
+    </script>
 
 </body>
 </html>
